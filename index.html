@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CardGenius — Privacy Policy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #1a1a2e; line-height: 1.6; }
+  h1 { color: #14233e; }
+  h2 { color: #14233e; margin-top: 32px; font-size: 19px; }
+  .updated { color: #6b7280; font-size: 14px; }
+  ul { padding-left: 22px; }
+</style>
+</head>
+<body>
 
+<h1>CardGenius — Privacy Policy</h1>
+<p class="updated">Last updated: [FILL IN DATE BEFORE PUBLISHING]</p>
+
+<p>CardGenius is a Chrome extension that recommends which credit card to use for a purchase, based on the reward rates, protections, and fees of the cards you tell it you own. This page explains what data the extension accesses, what it does with it, and what it does not do.</p>
+
+<h2>What CardGenius accesses</h2>
+<ul>
+  <li><strong>The cards you select.</strong> On the extension's options page, you check off which credit cards you own from a built-in list. This selection is saved using Chrome's local storage (<code>chrome.storage.local</code>), on your own device.</li>
+  <li><strong>Your saved category preferences.</strong> For cards with rotating or choice bonus categories, your selection (e.g. "gas" or "online retail") is also saved the same way, locally.</li>
+  <li><strong>The order total on checkout-type pages.</strong> When you visit a page whose URL contains a pattern like cart, checkout, payment, order, shipping, or billing, the extension reads the visible order total on that page in order to calculate which of your selected cards would earn the most.</li>
+</ul>
+
+<h2>What CardGenius does <em>not</em> do</h2>
+<ul>
+  <li>It does not collect, store, or transmit your name, email, card numbers, bank logins, or any other personally identifying or financial account information. You never enter a real card number into this extension.</li>
+  <li>It does not send any data to a server. There is no backend. Every calculation happens locally, inside your browser, using a card database bundled with the extension itself.</li>
+  <li>It does not track your browsing history or activity beyond the single page you're currently viewing, and only on pages matching the checkout-type URL patterns above.</li>
+  <li>It does not use cookies, analytics, or any third-party tracking service.</li>
+  <li>It does not sell or share any data with any third party, because no data ever leaves your device in the first place.</li>
+</ul>
+
+<h2>Permissions</h2>
+<p>CardGenius requests two permissions:</p>
+<ul>
+  <li><strong>storage</strong> — to save your selected cards and preferences locally on your device, so you don't have to re-select them every visit.</li>
+  <li><strong>activeTab</strong> — to let the toolbar popup re-display the recommendation on the page you're currently viewing, if you ask it to.</li>
+</ul>
+<p>CardGenius does not request access to all websites. It only runs on pages whose URL matches checkout-related patterns, as declared in its manifest.</p>
+
+<h2>Changes to this policy</h2>
+<p>If CardGenius ever adds a feature that changes what data it accesses or how (for example, an opt-in feature that shares data with a server), this policy will be updated first, and that feature will require your explicit opt-in before it is enabled.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy can be sent to: [FILL IN YOUR CONTACT EMAIL BEFORE PUBLISHING]</p>
+
+</body>
+</html>
