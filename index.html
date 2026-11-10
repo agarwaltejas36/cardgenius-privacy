@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -15,39 +15,66 @@
 <body>
 
 <h1>CardGenius — Privacy Policy</h1>
-<p class="updated">Last updated: 09 September 2026</p>
+<p class="updated">Last updated: 10 November 2026 (version 3.5.1)</p>
 
-<p>CardGenius is a Chrome extension that recommends which credit card to use for a purchase, based on the reward rates, protections, and fees of the cards you tell it you own. This page explains what data the extension accesses, what it does with it, and what it does not do.</p>
+<p>CardGenius is a Chrome extension that recommends which credit card to use for a purchase, based on the reward rates, protections, fees and offers of the cards you tell it you own. This page explains what data the extension accesses, what it does with it, and what it does not do.</p>
 
 <h2>What CardGenius accesses</h2>
 <ul>
-  <li><strong>The cards you select.</strong> On the extension's options page, you check off which credit cards you own from a built-in list. This selection is saved using Chrome's local storage (<code>chrome.storage.local</code>), on your own device.</li>
-  <li><strong>Your saved category preferences.</strong> For cards with rotating or choice bonus categories, your selection (e.g. "gas" or "online retail") is also saved the same way, locally.</li>
-  <li><strong>The order total on checkout-type pages.</strong> When you visit a page whose URL contains a pattern like cart, checkout, payment, order, shipping, or billing, the extension reads the visible order total on that page in order to calculate which of your selected cards would earn the most.</li>
+  <li><strong>The cards you select.</strong> On the options page you check off which credit cards you own from a built-in list. The selection is saved with Chrome's local storage (<code>chrome.storage.local</code>) on your own device.</li>
+  <li><strong>Your saved preferences.</strong> This includes your country, theme, rotating or choice bonus categories (for example "gas" or "online retail") and which optional features you have switched on. They are saved the same way, locally.</li>
+  <li><strong>The merchant and order total on checkout-type pages.</strong> When you visit a page whose URL contains a pattern like cart, checkout, payment, order, shipping or billing, the extension reads the site name and the order total shown on that page to calculate which of your selected cards would earn the most. This is processed in your browser and is not stored or sent anywhere.</li>
 </ul>
+
+<h2>Optional features (all off until you switch them on)</h2>
+<ul>
+  <li><strong>Personalized offers (Chase, American Express, Capital One).</strong> If you switch this on for an issuer, CardGenius asks your browser for access to that issuer's offers pages only, and reads the offers already shown to you there (merchant, reward, expiry and whether an offer is active) so they can be included in the recommendation. For Capital One it also finds the "Activate shopping offers" heading and the "View all offers" link on your account summary page, opens that link, and loads the remaining offers by making read-only requests to the offers feed that the Capital One offers page itself uses, on the same site. It does not read card numbers, balances, transactions or passwords. The offers are stored only on your device. Turning the switch off stops it immediately and CardGenius no longer reads those pages. By default CardGenius never activates an offer for you; for Chase and American Express there is a separate "automatically activate" option, off unless you turn it on, and Capital One offers are never activated by CardGenius (you activate them yourself with Capital One's "Shop Online" button).</li>
+  <li><strong>Nearby places.</strong> If you turn this on and allow location in CardGenius's own dialog, the extension reads your position, rounds it to about 110 metres, and sends only that rounded position to OpenStreetMap's public Overpass service (overpass-api.de, or overpass.private.coffee as a backup) to find shops and restaurants nearby. No card, wallet or offer information is sent. Only the last rounded position is kept on your device, and it is removed when you turn the feature off. Alerts, if enabled, use Chrome notifications.</li>
+</ul>
+
+<h2>Network requests CardGenius makes</h2>
+<ul>
+  <li><strong>Exchange rates:</strong> when a checkout page's currency differs from your card's, the extension requests rates from api.frankfurter.dev. The request contains only currency codes, not your purchase, merchant or cards.</li>
+  <li><strong>Nearby places and offers feeds:</strong> only as described above, and only if you turned those features on.</li>
+</ul>
+<p>There is no CardGenius server or account. Fonts and the card database are bundled with the extension, so no third-party font or data downloads are needed.</p>
 
 <h2>What CardGenius does <em>not</em> do</h2>
 <ul>
-  <li>It does not collect, store, or transmit your name, email, card numbers, bank logins, or any other personally identifying or financial account information. You never enter a real card number into this extension.</li>
-  <li>It does not send any data to a server. There is no backend. Every calculation happens locally, inside your browser, using a card database bundled with the extension itself.</li>
-  <li>It does not track your browsing history or activity beyond the single page you're currently viewing, and only on pages matching the checkout-type URL patterns above.</li>
-  <li>It does not use cookies, analytics, or any third-party tracking service.</li>
-  <li>It does not sell or share any data with any third party, because no data ever leaves your device in the first place.</li>
+  <li>It does not collect, store or transmit your name, email, card numbers, bank logins or any other personally identifying or financial account information. You never enter a real card number into this extension.</li>
+  <li>It does not send your selections, offers, purchases or browsing to any server operated by us. We have no backend.</li>
+  <li>It does not track your browsing history. It acts only on the page you are viewing and only on checkout-type pages, or on an issuer's offers page you have opted into.</li>
+  <li>It does not use cookies, analytics, advertising or any third-party tracking service.</li>
+  <li>It does not sell or share your data, and does not use it for advertising or lending or credit decisions.</li>
+  <li>It does not load or run remote code. Data it receives (exchange rates, map data, your offers feed) is treated as data only.</li>
 </ul>
 
 <h2>Permissions</h2>
-<p>CardGenius requests two permissions:</p>
+<p>Always requested:</p>
 <ul>
-  <li><strong>storage</strong> — to save your selected cards and preferences locally on your device, so you don't have to re-select them every visit.</li>
-  <li><strong>activeTab</strong> — to let the toolbar popup re-display the recommendation on the page you're currently viewing, if you ask it to.</li>
+  <li><strong>storage</strong> — saves your cards, preferences and synced offers locally.</li>
+  <li><strong>activeTab</strong> — lets the toolbar popup re-display the recommendation on the page you are viewing, when you ask.</li>
+  <li><strong>alarms</strong>, <strong>offscreen</strong>, <strong>geolocation</strong> — used only by the optional Nearby places feature (a periodic check, a hidden page that reads your location because background pages cannot, and your location itself).</li>
+  <li><strong>api.frankfurter.dev</strong>, <strong>overpass-api.de</strong>, <strong>overpass.private.coffee</strong> — exchange rates and optional nearby lookups, as described above.</li>
+  <li><strong>Checkout-type pages on any site</strong> — the extension runs on pages whose URL matches cart, checkout, payment, order, shipping or billing patterns, so it can show the recommendation on any shop.</li>
 </ul>
-<p>CardGenius does not request access to all websites. It only runs on pages whose URL matches checkout-related patterns, as declared in its manifest.</p>
+<p>Requested only when you switch the related feature on:</p>
+<ul>
+  <li><strong>scripting</strong> and <strong>notifications</strong> — to run the offers reader on an issuer's page, and to show Nearby alerts.</li>
+  <li><strong>secure.chase.com</strong>, <strong>global.americanexpress.com</strong>, <strong>capitaloneoffers.com</strong>, <strong>myaccounts.capitalone.com</strong> — to read the offers pages of the issuer you chose. You can revoke these at any time from the extension's settings in Chrome.</li>
+</ul>
+
+<h2>Your control</h2>
+<p>Removing the extension deletes everything it stored. Optional features can be turned off at any time on the options page, and their permissions revoked in Chrome.</p>
+
+<h2>Not financial advice; independence</h2>
+<p>Reward values and offers shown are estimates for information only; always confirm with your card issuer. CardGenius is independent and is not affiliated with or endorsed by any card issuer, network or retailer. Their names are used only to identify the cards and offers the extension works with.</p>
 
 <h2>Changes to this policy</h2>
-<p>If CardGenius ever adds a feature that changes what data it accesses or how (for example, an opt-in feature that shares data with a server), this policy will be updated first, and that feature will require your explicit opt-in before it is enabled.</p>
+<p>If CardGenius ever changes what data it accesses or how (for example, a feature that shares data with a server), this policy will be updated first and the new feature will require your explicit opt-in before it is enabled. The date at the top shows when it last changed.</p>
 
 <h2>Contact</h2>
-<p>Questions about this policy can be sent to: [FILL IN YOUR CONTACT EMAIL BEFORE PUBLISHING]</p>
+<p>Questions about this policy can be sent to: <link rel="Contact Us" href="https://forms.gle/753ZPJg5DuNLBrbW6"></p>
 
 </body>
 </html>
